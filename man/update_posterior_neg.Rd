@@ -26,7 +26,7 @@ This function will calculate the posterior distribution from a given prior matri
 and a column and row index.
 }
 \examples{
-create_sample_matrix(5)
+generate_sample_matrix(5)
 update_posterior_neg(prior_grid, pod_grid, 1, 1)
 
 }
