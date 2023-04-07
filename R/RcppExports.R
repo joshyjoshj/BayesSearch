@@ -21,3 +21,27 @@ create_prior_grid <- function(prior_input) {
     .Call(`_BayesSearch_create_prior_grid`, prior_input)
 }
 
+#' Calculate the posterior distribution
+#'
+#' @description Calculate the posterior distribution after a negative search of a given grid square
+#'
+#' @details This function will calculate the posterior distribution from a given prior matrix, probability of detection matrix
+#' and a column and row index.
+#'
+#' @param prior_grid A numeric matrix that is a valid probability density function. Use \code{\link{create_prior_grid}} for validation.
+#'
+#' @param pod_grid A numeric matrix. All matrix entries must be greater than 0 and less than 1.
+#'
+#' @param row Integer representing the row index
+#'
+#' @param col Integer representing the column index
+#'
+#' @returns Numeric matrix
+#'
+#' @examples update_posterior_neg(prior_grid, pod_grid, 1, 1)
+#'
+#' @export
+update_posterior_neg <- function(prior_grid, pod_grid, row, col) {
+    .Call(`_BayesSearch_update_posterior_neg`, prior_grid, pod_grid, row, col)
+}
+
