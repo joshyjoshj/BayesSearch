@@ -30,7 +30,19 @@ NumericMatrix normalize_matrix(NumericMatrix mat) {
 
 //' Create a prior grid
 //'
+//' @description 'create_prior_grid' returns a valid prior from a given numeric matrix
+//'
+//' @details This is a function that takes any numeric matrix and returns another numeric matrix which is a valid probability
+//' density function that has a "prior" attribute assigned to it. The input doesn't have to be a valid PDF the function will
+//' do this so when using this package its always good to use this function before using any of the search functions.
+//'
 //' @param prior_input A numeric matrix
+//'
+//' @returns A (normalized) numeric matrix
+//'
+//' @examples create_prior_grid(matrix(c(1,2,3,4),nrow = 1, ncol = 4))
+//'
+//'
 //' @export
 // [[Rcpp::export]]
 NumericMatrix create_prior_grid(NumericMatrix prior_input) {

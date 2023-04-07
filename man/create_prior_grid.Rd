@@ -9,6 +9,19 @@ create_prior_grid(prior_input)
 \arguments{
 \item{prior_input}{A numeric matrix}
 }
+\value{
+A (normalized) numeric matrix
+}
 \description{
-Create a prior grid
+'create_prior_grid' returns a valid prior from a given numeric matrix
+}
+\details{
+This is a function that takes any numeric matrix and returns another numeric matrix which is a valid probability
+density function that has a "prior" attribute assigned to it. The input doesn't have to be a valid PDF the function will
+do this so when using this package its always good to use this function before using any of the search functions.
+}
+\examples{
+create_prior_grid(matrix(c(1,2,3,4),nrow = 1, ncol = 4))
+
+
 }
