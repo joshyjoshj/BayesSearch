@@ -15,6 +15,7 @@
 #' @examples generate_sample_matrix(5)
 #'
 #' @import MASS
+#' @import stats
 #' @export
 #'
 generate_sample_matrix <- function(n){
@@ -24,10 +25,10 @@ generate_sample_matrix <- function(n){
   prior_matrix <- create_prior_grid(prior_kde$z)
   assign("prior_grid",prior_matrix, envir = .GlobalEnv)
 
-  pod_matrix <- matrix(runif(n^2, min = 0, max = 1), nrow = n, ncol = n)
+  pod_matrix <- matrix(stats::runif(n^2, min = 0, max = 1), nrow = n, ncol = n)
   assign("pod_grid",pod_matrix, envir = .GlobalEnv)
 
-  cost_matrix <- matrix(runif(n^2, min = 0, max = 1), nrow = n, ncol = n)
+  cost_matrix <- matrix(stats::runif(n^2, min = 0, max = 1), nrow = n, ncol = n)
   assign("cost_grid",cost_matrix, envir = .GlobalEnv)
 
 }

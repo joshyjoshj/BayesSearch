@@ -15,4 +15,6 @@ BugReports: https://github.com/joshyjoshj/BayesSearch/issues
 LinkingTo: 
     Rcpp
 Imports: 
-    Rcpp
+    Rcpp,
+    MASS,
+    stats
