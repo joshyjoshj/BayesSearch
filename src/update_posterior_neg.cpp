@@ -42,7 +42,9 @@ bool check_pod_grid_validity(NumericMatrix pod_grid) {
 //'
 //' @returns Numeric matrix
 //'
-//' @examples update_posterior_neg(prior_grid, pod_grid, 1, 1)
+//' @examples
+//' create_sample_matrix(5)
+//' update_posterior_neg(prior_grid, pod_grid, 1, 1)
 //'
 //' @export
 // [[Rcpp::export]]

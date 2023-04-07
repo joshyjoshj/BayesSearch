@@ -38,7 +38,9 @@ create_prior_grid <- function(prior_input) {
 #'
 #' @returns Numeric matrix
 #'
-#' @examples update_posterior_neg(prior_grid, pod_grid, 1, 1)
+#' @examples
+#' create_sample_matrix(5)
+#' update_posterior_neg(prior_grid, pod_grid, 1, 1)
 #'
 #' @export
 update_posterior_neg <- function(prior_grid, pod_grid, row, col) {
