@@ -21,6 +21,33 @@ create_prior_grid <- function(prior_input) {
     .Call(`_BayesSearch_create_prior_grid`, prior_input)
 }
 
+#' Posteriors of a search list
+#'
+#' @description Calculates the posteriors for each step in a given search sequence.
+#'
+#' @details This function will calculate the posteriors and overall probability of detection for each step in a given search sequence matrix.
+#' The function assumes a negative search result after each step.
+#'
+#' @param prior_grid A numeric matrix that is a valid probability density function. Use \code{\link{create_prior_grid}} for validation.
+#'
+#' @param pod_grid A numeric matrix. All matrix entries must be greater than 0 and less than 1.
+#'
+#' @param search_sequence An integer matrix with two columns. Each row represents the square to be searched. Column 1 is the row index
+#' and column 2 is the column index. See example for more detail.
+#'
+#' @returns List of the same length as the search sequence. Each list element contains a posterior (Numeric Matrix), overall probability
+#' of detection (Double) and the grid square searched (String)
+#'
+#' @examples
+#' generate_sample_matrix(5)
+#' search_sequence <- matrix(c(1,5,2,5,3,5,4,5,5,5), nrow = 5, ncol = 2)
+#' search_sequence_posteriors(prior_grid, pod_grid, search_sequence)
+#'
+#' @export
+search_sequence_posteriors <- function(prior_grid, pod_grid, search_sequence) {
+    .Call(`_BayesSearch_search_sequence_posteriors`, prior_grid, pod_grid, search_sequence)
+}
+
 #' Calculate the posterior distribution
 #'
 #' @description Calculate the posterior distribution after a negative search of a given grid square

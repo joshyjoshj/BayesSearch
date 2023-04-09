@@ -21,6 +21,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// search_sequence_posteriors
+List search_sequence_posteriors(NumericMatrix prior_grid, NumericMatrix pod_grid, IntegerMatrix search_sequence);
+RcppExport SEXP _BayesSearch_search_sequence_posteriors(SEXP prior_gridSEXP, SEXP pod_gridSEXP, SEXP search_sequenceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type prior_grid(prior_gridSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type pod_grid(pod_gridSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type search_sequence(search_sequenceSEXP);
+    rcpp_result_gen = Rcpp::wrap(search_sequence_posteriors(prior_grid, pod_grid, search_sequence));
+    return rcpp_result_gen;
+END_RCPP
+}
 // update_posterior_neg
 NumericMatrix update_posterior_neg(NumericMatrix prior_grid, NumericMatrix pod_grid, int row, int col);
 RcppExport SEXP _BayesSearch_update_posterior_neg(SEXP prior_gridSEXP, SEXP pod_gridSEXP, SEXP rowSEXP, SEXP colSEXP) {
@@ -38,6 +51,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_BayesSearch_create_prior_grid", (DL_FUNC) &_BayesSearch_create_prior_grid, 1},
+    {"_BayesSearch_search_sequence_posteriors", (DL_FUNC) &_BayesSearch_search_sequence_posteriors, 3},
     {"_BayesSearch_update_posterior_neg", (DL_FUNC) &_BayesSearch_update_posterior_neg, 4},
     {NULL, NULL, 0}
 };
