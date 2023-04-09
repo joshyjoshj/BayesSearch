@@ -2,6 +2,7 @@
 
 export(create_prior_grid)
 export(generate_sample_matrix)
+export(posterior_sequence_long)
 export(search_sequence_posteriors)
 export(update_posterior_neg)
 import(MASS)

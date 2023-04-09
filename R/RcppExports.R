@@ -21,6 +21,28 @@ create_prior_grid <- function(prior_input) {
     .Call(`_BayesSearch_create_prior_grid`, prior_input)
 }
 
+#' Melt Search sequence output
+#'
+#' @description Melt the output of search sequence functions into long data-frame format
+#'
+#' @details This function melts the output of a search function to a long data-frame format to allow for easier analysis
+#' of the searcg
+#'
+#' @param search_posteriors, the list output of a search function
+#'
+#' @returns A dataframe
+#'
+#' @examples
+#' generate_sample_matrix(5)
+#' search_sequence <- matrix(c(1,5,2,5,3,5,4,5,5,5), nrow = 5, ncol = 2)
+#' search_posteriors <- search_sequence_posteriors(prior_grid, pod_grid, search_sequence)
+#' posterior_sequence_long(search_posteriors)
+#'
+#' @export
+posterior_sequence_long <- function(search_posteriors) {
+    .Call(`_BayesSearch_posterior_sequence_long`, search_posteriors)
+}
+
 #' Posteriors of a search list
 #'
 #' @description Calculates the posteriors for each step in a given search sequence.
