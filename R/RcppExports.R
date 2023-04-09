@@ -21,6 +21,31 @@ create_prior_grid <- function(prior_input) {
     .Call(`_BayesSearch_create_prior_grid`, prior_input)
 }
 
+#' Optimal search posteriors
+#'
+#' @description Calculates the posteriors of the optimal search of a given length
+#'
+#' @details This function takes a cost grid in addition to the standard prior grid and probability of detection grid and will calculate the optimal
+#' search sequence for a given length.
+#'
+#' @param prior_grid A numeric matrix that is a valid probability density function. Use \code{\link{create_prior_grid}} for validation.
+#'
+#' @param pod_grid A numeric matrix. All matrix entries must be greater than 0 and less than 1.
+#'
+#' @param cost_grid A numeric matrix representing the cost of searching each grid square
+#'
+#' @returns List of the same length as the search sequence. Each list element contains a posterior (Numeric Matrix), overall probability
+#' of detection (Double) and the grid square searched (String)
+#'
+#' @examples
+#'
+#' generate_sample_matrix(5)
+#' optimal_search_sequence_posteriors(prior_grid, pod_grid, cost_grid, 10)
+#'
+optimal_search_sequence_posteriors <- function(prior_grid, pod_grid, cost_grid, num_searches) {
+    .Call(`_BayesSearch_optimal_search_sequence_posteriors`, prior_grid, pod_grid, cost_grid, num_searches)
+}
+
 #' Melt Search sequence output
 #'
 #' @description Melt the output of search sequence functions into long data-frame format

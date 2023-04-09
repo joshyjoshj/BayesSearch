@@ -21,6 +21,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// optimal_search_sequence_posteriors
+List optimal_search_sequence_posteriors(NumericMatrix prior_grid, NumericMatrix pod_grid, NumericMatrix cost_grid, int num_searches);
+RcppExport SEXP _BayesSearch_optimal_search_sequence_posteriors(SEXP prior_gridSEXP, SEXP pod_gridSEXP, SEXP cost_gridSEXP, SEXP num_searchesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type prior_grid(prior_gridSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type pod_grid(pod_gridSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type cost_grid(cost_gridSEXP);
+    Rcpp::traits::input_parameter< int >::type num_searches(num_searchesSEXP);
+    rcpp_result_gen = Rcpp::wrap(optimal_search_sequence_posteriors(prior_grid, pod_grid, cost_grid, num_searches));
+    return rcpp_result_gen;
+END_RCPP
+}
 // posterior_sequence_long
 DataFrame posterior_sequence_long(List search_posteriors);
 RcppExport SEXP _BayesSearch_posterior_sequence_long(SEXP search_posteriorsSEXP) {
@@ -62,6 +76,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_BayesSearch_create_prior_grid", (DL_FUNC) &_BayesSearch_create_prior_grid, 1},
+    {"_BayesSearch_optimal_search_sequence_posteriors", (DL_FUNC) &_BayesSearch_optimal_search_sequence_posteriors, 4},
     {"_BayesSearch_posterior_sequence_long", (DL_FUNC) &_BayesSearch_posterior_sequence_long, 1},
     {"_BayesSearch_search_sequence_posteriors", (DL_FUNC) &_BayesSearch_search_sequence_posteriors, 3},
     {"_BayesSearch_update_posterior_neg", (DL_FUNC) &_BayesSearch_update_posterior_neg, 4},
