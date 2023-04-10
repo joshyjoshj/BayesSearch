@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Josh", "Bale", , "joshbale1234@gmail.com", role = c("aut", "cre"),
            )
-Description: The package gives functions to implement Bayesian Search theory in R from start to finish. There are helper functions to create valid 
-probability density functions and 3 different search types as well as a custom melt function to aid visualisation and analysis.
+Description: The package gives functions to implement Bayesian Search theory in R from start to finish. There are helper functions to create valid probability density functions and 3 different search types as well as a custom melt function to aid visualisation and analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
