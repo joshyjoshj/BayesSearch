@@ -78,6 +78,8 @@ NumericMatrix update_posterior_neg_optim(NumericMatrix prior_grid, NumericMatrix
 //'
 //' @param cost_grid A numeric matrix representing the cost of searching each grid square
 //'
+//' @param num_searches Integer representing the number of searches to perform
+//'
 //' @returns List of the same length as the search sequence. Each list element contains a posterior (Numeric Matrix), overall probability
 //' of detection (Double) and the grid square searched (String)
 //'

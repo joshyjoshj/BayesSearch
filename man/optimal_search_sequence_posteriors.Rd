@@ -17,6 +17,8 @@ optimal_search_sequence_posteriors(
 \item{pod_grid}{A numeric matrix. All matrix entries must be greater than 0 and less than 1.}
 
 \item{cost_grid}{A numeric matrix representing the cost of searching each grid square}
+
+\item{num_searches}{Integer representing the number of searches to perform}
 }
 \value{
 List of the same length as the search sequence. Each list element contains a posterior (Numeric Matrix), overall probability
