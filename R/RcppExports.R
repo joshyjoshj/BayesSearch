@@ -44,6 +44,7 @@ create_prior_grid <- function(prior_input) {
 #' generate_sample_matrix(5)
 #' optimal_search_sequence_posteriors(prior_grid, pod_grid, cost_grid, 10)
 #'
+#' @export
 optimal_search_sequence_posteriors <- function(prior_grid, pod_grid, cost_grid, num_searches) {
     .Call(`_BayesSearch_optimal_search_sequence_posteriors`, prior_grid, pod_grid, cost_grid, num_searches)
 }

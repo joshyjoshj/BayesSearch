@@ -88,6 +88,7 @@ NumericMatrix update_posterior_neg_optim(NumericMatrix prior_grid, NumericMatrix
 //' generate_sample_matrix(5)
 //' optimal_search_sequence_posteriors(prior_grid, pod_grid, cost_grid, 10)
 //'
+//' @export
 // [[Rcpp::export]]
 List optimal_search_sequence_posteriors(NumericMatrix prior_grid, NumericMatrix pod_grid, NumericMatrix cost_grid, int num_searches) {
   // Checking if prior_grid is valid
