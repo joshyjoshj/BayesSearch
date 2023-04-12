@@ -49,6 +49,9 @@ bool check_pod_grid_validity(NumericMatrix pod_grid) {
 //' @export
 // [[Rcpp::export]]
 NumericMatrix update_posterior_neg(NumericMatrix prior_grid, NumericMatrix pod_grid, int row, int col) {
+  row -= 1; // Subtract 1 to convert to 0-based indexing
+  col -= 1; // subtract 1 to convert to 0-based indexing
+
   // Checking if prior_grid is valid
   if (!check_prior_grid_validity(prior_grid)) {
     stop("Invalid prior_grid input. The sum of all probabilities must be 1.");
