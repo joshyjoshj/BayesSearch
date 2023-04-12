@@ -54,7 +54,7 @@ You don't need to use this function before using any of the search functions but
 
 ## Searching a grid sqaure
 
-For the rest of the examples we will use example matrices created by `generate_sample_matrix()`. This will assing 3 matrices to the global environment for use in examples 
+For the rest of the examples we will use example matrices created by `generate_sample_matrix()`. This will assign 3 matrices to the global environment for use in examples 
 
 ```{r example}
 generate_sample_matrix(5)
@@ -63,21 +63,37 @@ pod_grid
 cost_grid
 ```
 
-In the global environment should be 3 5 by 5 matrices. 
+In the global environment should be 3 5x5 matrices. 
 
-
+To calculate the posterior given a negative search result we use the `update_posterior_neg()` function. We will assume there as been a negative search in the grid square in row 5 and column 3. 
 
 ```{r single_search}
-
+posterior_single <- update_posterior_neg(prior_grid, pod_grid, 5 , 3)
+posterior_single
 ```
+
+The posterior is outputted as a matrix with attribute "posterior".
 
 ## Searching a sequence of squares
 
+Now say we want to simulate a sequence of failed searches. To do this we first define a matrix of squares to search.
 
 
-```{r search_sequence}
-
+```{r search_sequence1}
+#Defining search sequence
+search_sequence <- matrix(c(1,5,2,5,3,5,4,5,5,5), nrow = 5, ncol = 2)
+search_sequence
 ```
+
+This search sequence indicates 5 searches starting at (1,5) then (5,4) and so on, ending at (3,5). The first column is the row index and second the column. Now this matrix can be passed into the `search_sequence_posteriors()` function.
+
+```{r search_sequence2}
+#
+search_posteriors <- search_sequence_posteriors(prior_grid, pod_grid, search_sequence)
+search_posteriors
+```
+
+The output of the function will be a list of the length of the search sequence containing for each step an overall probability of detection, the searched square and the posterior.
 
 ## Optimal search sequence
 
