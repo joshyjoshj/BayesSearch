@@ -88,7 +88,6 @@ search_sequence
 This search sequence indicates 5 searches starting at (1,5) then (5,4) and so on, ending at (3,5). The first column is the row index and second the column. Now this matrix can be passed into the `search_sequence_posteriors()` function.
 
 ```{r search_sequence2}
-#
 search_posteriors <- search_sequence_posteriors(prior_grid, pod_grid, search_sequence)
 search_posteriors
 ```
@@ -97,17 +96,27 @@ The output of the function will be a list of the length of the search sequence c
 
 ## Optimal search sequence
 
-
+Given a cost matrix representing the theoretical cost of searching the each grid square `optimal_search_sequence_posteriors()` will perform the optimal search of a given length. The output is the same as `search_sequence_posteriors()`.
 
 ```{r optimal_search}
-
+search_posteriors_optim <- optimal_search_sequence_posteriors(prior_grid, pod_grid, cost_grid, 5)
+search_posteriors_optim
 ```
 
 ## Extracting data
 
-
+To extract the data from search sequence use the `posterior_sequence_long()` function. This will create a long format data-frame from the list output of both search functions. 
 
 ```{r melt}
+#Load tidyverse
+library(tidyverse)
+
+data_long <- posterior_sequence_long(search_posteriors)
+data_long_optim <- posterior_sequence_long(search_posteriors_optim)
+
+slice_head(data_long, n = 5)
+slice_head(data_long_optim, n = 5)
+
 
 ```
 
