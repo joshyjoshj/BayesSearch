@@ -45,8 +45,8 @@ library(BayesSearch)
 mat_rel <- matrix(c(3,2,1,5), nrow = 2, ncol = 2)
 
 #Creating prior using create_prior_grid function
-prior_grid <- create_prior_grid(mat_rel)
-prior_grid
+prior <- create_prior_grid(mat_rel)
+prior
 
 ```
 
